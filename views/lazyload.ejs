@@ -13,18 +13,17 @@
 			</select>
 		</div>
 		<div class="form-group">
+			<h5 class="selectLabel hide">Please select <span id="randomCity"></span> from given cities</h5>
 			<div id="cities">
 				<table class="table table-striped">
 			    <tbody></tbody>
 				</table>
 			</div>
 		</div>
+		<div class="has-error">
+			<code class="help-block hide">Correct City not selected</code>
+		</div>
 	</div>
-	<button type="button" name="button" class="btn btn-lg continueBtn xebiaTheme" onclick="next()">Continue</button>
+	<button type="button" name="button" class="btn btn-lg continueBtn xebiaTheme" onclick="checkSelected()">Continue</button>
 </section>
-<script type="text/javascript">
-	var getCities = function(country) {
-		console.log(country);
-	}
-</script>
 <% include includes/footer.ejs %>

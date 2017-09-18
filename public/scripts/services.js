@@ -1,14 +1,17 @@
 var url = 'http://localhost:3000/';
 // Lazy loading
 cities = [];
+allCities = [];
 var offset = 1;
+var randomCitySelect = '';
 var getCities = function(country) {
   $.ajax({
     url : url+'getCities?country='+country,
     method : 'GET',
     success : function(response){
       $('#cities .table.table-striped tbody').html('');
-      cities = response;
+      allCities = JSON.parse(JSON.stringify(response));
+      cities = JSON.parse(JSON.stringify(response));
       populateCities(response);
     },
     error : function(error){
@@ -17,10 +20,13 @@ var getCities = function(country) {
   });
 }
 var populateCities = function(response){
+  randomCitySelect = allCities[Math.floor(Math.random() * (allCities.length - 0) + 0)];
+  $('.selectLabel').removeClass('hide');
+  $('#randomCity').html(randomCitySelect);
   if(response.length != 0){
     tmpArr = f(cities);
     for(var i=0;i<tmpArr.length;i++){
-      $('#cities .table.table-striped tbody').append('<tr><td>'+tmpArr[i]+'</td></tr>');
+      $('#cities .table.table-striped tbody').append('<tr><td class="city" onclick="selectCity(this)">'+tmpArr[i]+'</td></tr>');
     }
   }
   else{
@@ -40,8 +46,35 @@ $('#cities').on('scroll', function() {
             cities = cities.splice(8,cities.length);
              tmpArr = f(cities);
              for(var i=0;i<tmpArr.length;i++){
-               $('#cities .table.table-striped tbody').append('<tr><td>'+tmpArr[i]+'</td></tr>');
+               $('#cities .table.table-striped tbody').append('<tr><td class="city" onclick="selectCity(this)">'+tmpArr[i]+'</td></tr>');
              }
         }
-    })
+    });
+
+
+function checkSelected(){
+  var selectedCity = $('.selected').html();
+  var cityPresent = false;
+  for(var i=0;i<allCities.length;i++){
+    if(allCities[i] == selectedCity){
+      cityPresent = true;
+    }
+  }
+  if(cityPresent == true){
+    next();
+  }
+  else{
+    $('.help-block').removeClass('hide');
+  }
+}
+
+function selectCity(elem){
+  $('.help-block').addClass('hide');
+  if(randomCitySelect == elem.innerHTML){
+    $(elem).addClass('selected');
+  }
+  else{
+    $('.help-block').removeClass('hide');
+  }
+}
 // Lazy loading

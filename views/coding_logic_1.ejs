@@ -2,7 +2,55 @@
 
 <section class="container text-center jumbotron">
 	<h4>Coding Logic Test 1</h4>
-	<button type="button" name="button" class="btn btn-lg continueBtn xebiaTheme" onclick="next()">Continue</button>
+	<div>Click all the buttons until they become coloured.</div>
+	<form class="form-horizontal">
+		<div class="form-group">
+			<button type="button" class="btn textBtns" onclick="judgeClick(0,this)" name="button1" data-counter="0">Button 1</button>
+		</div>
+		<div class="form-group">
+			<button type="button" class="btn textBtns" onclick="judgeClick(1,this)" name="button2" data-counter="0">Button 2</button>
+		</div>
+		<div class="form-group">
+			<button type="button" class="btn textBtns" onclick="judgeClick(2,this)" name="button3" data-counter="0">Button 3</button>
+		</div>
+		<div class="form-group">
+			<button type="button" class="btn textBtns" onclick="judgeClick(3,this)" name="button4" data-counter="0">Button 4</button>
+		</div>
+		<div class="form-group">
+			<button type="button" class="btn textBtns" onclick="judgeClick(4,this)" name="button5" data-counter="0">Button 5</button>
+		</div>
+		<div class="has-error">
+			<code class="help-block hide">All the buttons not clicked. Please click all buttons.</code>
+		</div>
+		<button type="button" name="button" class="btn btn-lg continueBtn xebiaTheme" onclick="checkBtn()">Continue</button>
+	</form>
 </section>
-
+<script type="text/javascript">
+	max = 10,min=1;
+	timer = [Math.floor(Math.random() * (max - min) + min), Math.floor(Math.random() * (max - min) + min),Math.floor(Math.random() * (max - min) + min), Math.floor(Math.random() * (max - min) + min), Math.floor(Math.random() * (max - min) + min)];
+	function judgeClick(btnVal,thisBtn){
+		thisBtn.counter = parseInt($(thisBtn).attr('data-counter'));
+		thisBtn.counter = thisBtn.counter+1;
+		$(thisBtn).attr('data-counter',thisBtn.counter);
+		if(thisBtn.counter == timer[btnVal]){
+			$(thisBtn).addClass('activated');
+		}
+		$('.help-block').addClass('hide');
+	}
+	function checkBtn(){
+		var counter = 0;
+		var btns = document.querySelectorAll('.textBtns');
+		for(var i=0;i<btns.length;i++){
+			if($(btns[i]).hasClass('activated')){
+				counter++;
+			}
+		}
+		if(counter == 5){
+			next();
+		}
+		else{
+			$('.help-block').removeClass('hide');
+		}
+	}
+</script>
 <% include includes/footer.ejs %>

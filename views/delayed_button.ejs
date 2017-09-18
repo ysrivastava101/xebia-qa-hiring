@@ -3,14 +3,17 @@
 <section class="container text-center jumbotron">
   <div class="container">
     <h4 class="text-center"><u>Button Delayed</u></h4>
-    <div class="form-group jumbotron">
-      <button type="button" name="button" id="button" class="btn btn-primary center-block">Disabled</button>
+    <div>The button will be enabled after a random interval. Please write best synchronisation techniques for test cases.</div>
+    <div class="form-group jumbotron has-error">
+      <button type="button" name="button" id="button" class="btn btn-primary center-block" onclick="setBtn()">Disabled</button>
+      <code class="help-block hide">Button not clicked</code>
     </div>
   </div>
-  <button type="button" name="button" class="btn btn-lg continueBtn xebiaTheme" onclick="next()">Continue</button>
+  <button type="button" name="button" class="btn btn-lg continueBtn xebiaTheme" onclick="checkClick()">Continue</button>
 </section>
 <script type="text/javascript">
   var buttonEnable =   <%= buttonEnable %>;
+  var clicked = false;
   function buttonEnableDisable(){
     var btn = document.getElementById('button');
     if(buttonEnable == true){
@@ -21,12 +24,24 @@
       btn.innerHTML = 'Disabled';
     }
   }
+  function setBtn(){
+    clicked = true;
+    $('.help-block').addClass('hide');
+  }
   buttonEnableDisable();
   var num = Math.floor(Math.random() * (90)) + 30;
         window.setInterval(() => {
           buttonEnable = !buttonEnable;
           buttonEnableDisable();
         }, num * 1000);
+  function checkClick(){
+    if(buttonEnable && clicked){
+      next();
+    }
+    else{
+      $('.help-block').removeClass('hide');
+    }
+  }
 </script>
 
 <% include includes/footer.ejs %>

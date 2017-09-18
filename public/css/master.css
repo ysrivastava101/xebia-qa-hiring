@@ -34,3 +34,22 @@ div#cities::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     border-radius: 10px;
 }
+.has-error .control-label,
+.has-error .help-block,
+.has-error .form-control-feedback {
+    color: #f39c12;
+}
+
+#loginForm .has-success .control-label,
+#loginForm .has-success .help-block,
+#loginForm .has-success .form-control-feedback {
+    color: #18bc9c;
+}
+.activated,.activated:hover{
+  background: #0F0;
+  color:#fff;
+}
+.selected{
+  background: blue;
+  color:#fff;
+}

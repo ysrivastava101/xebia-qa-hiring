@@ -3,18 +3,19 @@
 <section class="container jumbotron">
     <div class="container">
 			<h4 class="text-center"><u>Basic Form</u></h4>
-			<form class="form-horizontal">
+      <code>Please fill the form. All fields are mandatory</code>
+			<form id="basicForm" class="form-horizontal">
 				<div class="form-group">
 					<label class="control-label" for="firstname">First Name</label>
-					<input type="text" class="form-control" name="firstname">
+					<input type="text" class="form-control" name="firstname" required>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="lastname">Last Name</label>
-					<input type="text" class="form-control" name="lastname">
+					<input type="text" class="form-control" name="lastname" required>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="carselect">My Car</label>
-					<select class="form-control" name="carselect">
+					<select class="form-control" name="carselect" required>
 						<option value="volvo">Volvo</option>
 	          <option value="saab">Saab</option>
 	          <option value="mercedes">Mercedes</option>
@@ -22,11 +23,11 @@
 					</select>
 				</div>
 				<div class="form-group">
-					<label class="control-label"><input type="checkbox"> I have a bike</label>
+					<label class="control-label"><input type="checkbox" required> I have a bike</label>
 				</div>
+        <button type="submit" name="button" class="btn btn-lg continueBtn xebiaTheme">Continue</button>
 			</form>
   </div>
-	<button type="button" name="button" class="btn btn-lg continueBtn xebiaTheme" onclick="next()">Continue</button>
 </section>
 
 <% include includes/footer.ejs %>

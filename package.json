@@ -16,6 +16,7 @@
     "express": "^4.15.3",
     "express-redirect": "^1.2.2",
     "express-remove-route": "^1.0.0",
+    "formvalidation": "^0.6.2-dev",
     "mysql": "^2.14.1",
     "nodemailer": "^4.1.0",
     "nodemon": "^1.12.0",

@@ -1,0 +1,36 @@
+body{
+  background: #eee;
+}
+.xebiaTheme {
+  background: rgb(108, 29, 95);
+  color:#fff !important;
+}
+.continueBtn {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  border-radius: 0px;
+}
+.continueBtn.btn.focus, .continueBtn.btn:focus, .continueBtn.btn:hover {
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    transition: font-size .5s;
+}
+div#cities {
+  height: 300px;
+  overflow-y: scroll;
+}
+div#cities::-webkit-scrollbar {
+    width: 5px;
+}
+div#cities::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #e4e4e4;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.5);
+}
+div#cities::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    border-radius: 10px;
+}

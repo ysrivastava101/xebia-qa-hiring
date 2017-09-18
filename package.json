@@ -1,0 +1,25 @@
+{
+  "name": "node-express",
+  "version": "1.0.0",
+  "description": "Simple Node Express App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "Yogesh Srivastava",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "country-city": "^1.0.0",
+    "ejs": "^2.5.7",
+    "express": "^4.15.3",
+    "express-redirect": "^1.2.2",
+    "express-remove-route": "^1.0.0",
+    "mysql": "^2.14.1",
+    "nodemailer": "^4.1.0",
+    "nodemon": "^1.12.0",
+    "underscore": "^1.8.3",
+    "uuid": "^3.1.0"
+  }
+}

@@ -1,0 +1,32 @@
+<% include includes/header.ejs %>
+
+<section class="container text-center jumbotron">
+  <div class="container">
+    <h4 class="text-center"><u>Button Delayed</u></h4>
+    <div class="form-group jumbotron">
+      <button type="button" name="button" id="button" class="btn btn-primary center-block">Disabled</button>
+    </div>
+  </div>
+  <button type="button" name="button" class="btn btn-lg continueBtn xebiaTheme" onclick="next()">Continue</button>
+</section>
+<script type="text/javascript">
+  var buttonEnable =   <%= buttonEnable %>;
+  function buttonEnableDisable(){
+    var btn = document.getElementById('button');
+    if(buttonEnable == true){
+      btn.removeAttribute('disabled');
+      btn.innerHTML= 'Enabled';
+    }else{
+      btn.setAttribute('disabled','disabled');
+      btn.innerHTML = 'Disabled';
+    }
+  }
+  buttonEnableDisable();
+  var num = Math.floor(Math.random() * (90)) + 30;
+        window.setInterval(() => {
+          buttonEnable = !buttonEnable;
+          buttonEnableDisable();
+        }, num * 1000);
+</script>
+
+<% include includes/footer.ejs %>

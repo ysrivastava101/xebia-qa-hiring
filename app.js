@@ -74,18 +74,13 @@ app.set('view engine', 'ejs');
 // app.get('/', function(req, res) {
 //   res.render('index');
 // })
-app.redirect("/", "/xebia-qa-hiring/");
+app.redirect("/", "/xebia-qa-hiring"+"/");
 app.get('/xebia-qa-hiring/', function (req, res) {
-  // debugger;
-  // console.log(req.headers["host"]);
-  // if(req.headers["X_USER"] == '1'){
-  //   console.log('Entered');
-  //   res.render('basic_form',{
-  //     'title' : 'Xebia QA Hiring'
-  //   });
-  // }
-  // else{
-  // console.log('Exited');
+
+  if(!req.url.endsWith("/")){
+    res.redirect(301,req.url+"/");
+  }
+
     res.render('welcome',{
       'title' : 'Xebia QA Hiring App'
     });

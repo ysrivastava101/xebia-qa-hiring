@@ -3,20 +3,15 @@
 <section class="container text-center jumbotron">
 	<div class="container">
 		<h4><u>Cookie Test</u></h4>
-		<div>Click button below to add the following cookie</div>
+		<div>Add a cookie key value plain by selenium code and then click on continue button.</div>
 		<code>name : Alexander</code>
 		<div class="form-group jumbotron has-error">
-			<button type="button" name="button" id="addCookie" class="btn btn-primary center-block" onclick="addCookie()">Add Cookie</button>
 			<code class="help-block hide">Cookie not added</code>
 		</div>
 	</div>
 	<button type="button" name="button" class="btn btn-lg continueBtn xebiaTheme" onclick="checkCookie()">Continue</button>
 </section>
 <script type="text/javascript">
-	var addCookie = function(){
-		$('.help-block').addClass('hide');
-		document.cookie = "name=Alexander";
-	}
 	function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);

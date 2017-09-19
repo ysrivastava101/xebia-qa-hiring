@@ -1,4 +1,4 @@
-var url = 'http://127.0.0.1:3000/';
+var url = 'http://10.31.194.47:3000/';
 // Lazy loading
 cities = [];
 allCities = [];

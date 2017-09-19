@@ -2,14 +2,14 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
   host: 'smtp.office365.com',
   port: '587',
-  auth: { user: 'ysrivastava@xebia.com', pass: 'Yogzz.sri0107' },
+  auth: { user: 'achauhan@xebia.com', pass: 'adi' },
   secureConnection: false,
   tls: { ciphers: 'SSLv3' }
 });
 
 var mailOptions = {
-  from: 'ysrivastava@xebia.com',
-  to: 'yogeshcs0107@gmail.com',
+  from: 'achauhan@xebia.com',
+  to: 'chauhan.aditya51@gmail.com',
   subject: 'Sending Email using Node.js',
   text: 'That was easy!'
 };

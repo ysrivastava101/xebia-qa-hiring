@@ -141,8 +141,8 @@ app.get('/getcities',function(req, res){
 })
 // APIs
 
-app.listen(3000, function () {
-  console.log('Server started on http://localhost:3000/xebia-qa-hiring/')
+app.listen(3000,"192.168.3.100", function () {
+  console.log('Server started on http://192.168.3.100:3000/xebia-qa-hiring/')
 })
 
 // connection.end();
